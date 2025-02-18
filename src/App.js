@@ -1,12 +1,14 @@
 import React from "react";
-
-console.log("App.js is rendering...");
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import Dashboard from "./pages/Dashboard";
 
 function App() {
   return (
-    <div>
-      <h1>React is Working!</h1>
-    </div>
+    <Router>
+      <Routes>
+        <Route path="/" element={<Dashboard />} />
+      </Routes>
+    </Router>
   );
 }
 
