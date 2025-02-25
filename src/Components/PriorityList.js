@@ -12,6 +12,11 @@ const PriorityList = () => {
     }
   };
 
+  const deleteItem = (index) => {
+    const newItems = items.filter((_, i) => i !== index);
+    setItems(newItems);
+  };
+
   return (
     <div>
       <h2>Priority List</h2>
@@ -29,7 +34,10 @@ const PriorityList = () => {
       <button onClick={addItem}>Add</button>
       <ul>
         {items.sort((a, b) => b.priority.localeCompare(a.priority)).map((item, index) => (
-          <li key={index}>{item.priority} - {item.text}</li>
+          <li key={index}>
+            {item.priority} - {item.text}
+            <button onClick={() => deleteItem(index)}>Delete</button>
+          </li>
         ))}
       </ul>
     </div>

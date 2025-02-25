@@ -17,6 +17,11 @@ const TaskManager = () => {
     setTasks(newTasks);
   };
 
+  const deleteTask = (index) => {
+    const newTasks = tasks.filter((_, i) => i !== index);
+    setTasks(newTasks);
+  };
+
   return (
     <div>
       <h2>Task Manager</h2>
@@ -32,6 +37,7 @@ const TaskManager = () => {
           <li key={index} style={{ textDecoration: t.completed ? "line-through" : "none" }}>
             <input type="checkbox" checked={t.completed} onChange={() => toggleTask(index)} />
             {t.text}
+            <button onClick={() => deleteTask(index)}>Delete</button>
           </li>
         ))}
       </ul>
